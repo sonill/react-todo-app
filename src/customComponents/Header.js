@@ -21,7 +21,7 @@ export default function Header() {
 
       <form
         role="search"
-        className="container mb-3 border-bottom py-2 bg-light"
+        className="container-fluid mb-3 border-bottom py-2 bg-light"
       >
         <input
           type="text"
