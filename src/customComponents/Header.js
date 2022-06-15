@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Header() {
+export default function Header({ showNewTodoForm, setShowNewTodoForm }) {
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-primary navbar-dark">
@@ -13,6 +13,7 @@ export default function Header() {
             className="btn btn-warning btn-sm"
             type="button"
             title="Add New Todo"
+            onClick={() => setShowNewTodoForm(!showNewTodoForm)}
           >
             <i className="bi-plus-lg"></i>
           </button>

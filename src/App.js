@@ -19,10 +19,7 @@ export default function App() {
     },
   ]);
 
-  const [showNewTodoForm, setShowNewTodoForm] = useState('');
-  const handleShowNewTodoForm = (show) => {
-    setShowNewTodoForm = show;
-  };
+  const [showNewTodoForm, setShowNewTodoForm] = useState(false);
 
   const addNewTodo = (title, desc) => {
     let new_sno = todos[todos.length - 1].sno + 1;
@@ -33,14 +30,20 @@ export default function App() {
     };
 
     setTodos([...todos, newData]);
+
+    setShowNewTodoForm(!showNewTodoForm);
   };
 
   return (
     <>
-      <Header />
+      <Header
+        setShowNewTodoForm={setShowNewTodoForm}
+        showNewTodoForm={showNewTodoForm}
+      />
       <NewTodo
         addNewTodoHandler={addNewTodo}
         showNewTodoForm={showNewTodoForm}
+        setShowNewTodoForm={setShowNewTodoForm}
       />
       <Todos todos={todos} />
     </>

@@ -23,7 +23,7 @@ export default function Todo({ todo }) {
           className="accordion-collapse collapse"
           aria-labelledby={heading_id}
           data-bs-parent="#accordionExample"
-          style={{ 'white-space': 'pre-line' }}
+          style={{ whiteSpace: 'pre-line' }}
         >
           <div className="accordion-body">{todo.desc}</div>
         </div>
