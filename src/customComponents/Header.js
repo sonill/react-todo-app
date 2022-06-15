@@ -14,7 +14,7 @@ export default function Header() {
             type="button"
             title="Add New Todo"
           >
-            <i class="bi-plus-lg"></i>
+            <i className="bi-plus-lg"></i>
           </button>
         </div>
       </nav>

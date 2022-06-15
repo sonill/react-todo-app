@@ -21,7 +21,7 @@ export default function NewTodo({ addNewTodo }) {
         <div className="rounded bg-light p-3 border">
           <p className="display-3 mt-0">New Todo</p>
           <div className="mb-3">
-            <label html-for="title" class="form-label">
+            <label html-for="title" className="form-label">
               Title
             </label>
             <input
@@ -39,7 +39,7 @@ export default function NewTodo({ addNewTodo }) {
             <textarea
               className="form-control "
               id="desc"
-              rows="3"
+              rows="2"
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
             />
