@@ -1,6 +1,19 @@
 import React from 'react';
+import { useState } from 'react';
 
-export default function Header({ showNewTodoForm, setShowNewTodoForm }) {
+export default function Header({
+  showNewTodoForm,
+  setShowNewTodoForm,
+  filterTodos,
+}) {
+  const [keywords, setKeywords] = useState('');
+
+  const do_filter = (e) => {
+    setKeywords(e.target.value);
+
+    filterTodos(e.target.value);
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-primary navbar-dark">
@@ -28,6 +41,8 @@ export default function Header({ showNewTodoForm, setShowNewTodoForm }) {
           type="text"
           className="form-control"
           placeholder="Search Keywords"
+          value={keywords}
+          onChange={do_filter}
         />
       </form>
     </div>
