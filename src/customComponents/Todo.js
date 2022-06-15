@@ -27,9 +27,9 @@ export default function Todo({ todo }) {
         >
           <div className="accordion-body">
             {todo.desc}
-            <div class="mt-3 pt-2 text-end border-top">
+            <div className="mt-3 pt-2 text-end border-top">
               <span style={{ cursor: 'pointer' }}>
-                <i class="bi bi-trash"></i>
+                <i className="bi bi-trash"></i>
               </span>
             </div>
           </div>
