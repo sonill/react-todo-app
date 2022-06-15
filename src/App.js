@@ -25,9 +25,7 @@ export default function App() {
   };
 
   // search / filter todos
-  const filterTodos = ( keyword ) => {
-    
-  } 
+  const filterTodos = (keyword) => {};
 
   const [showNewTodoForm, setShowNewTodoForm] = useState(false);
 
