@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 
-export default function NewTodo({ addNewTodo }) {
+export default function NewTodo({ addNewTodoHandler, showNewTodoForm }) {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
 
@@ -11,12 +11,16 @@ export default function NewTodo({ addNewTodo }) {
     if (!title || !desc) {
       alert('Both title and descriptions are required !');
     } else {
-      addNewTodo(title, desc);
+      addNewTodoHandler(title, desc);
     }
   };
 
   return (
-    <form className="container mb-4" onSubmit={handleSubmit}>
+    <form
+      className="container mb-4"
+      onSubmit={handleSubmit}
+      style={{ display: showNewTodoForm === true ? 'block' : 'none' }}
+    >
       <div className="col-lg-6 mx-auto">
         <div className="rounded bg-light p-3 border">
           <p className="display-3 mt-0">New Todo</p>
