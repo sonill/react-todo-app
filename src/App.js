@@ -7,6 +7,9 @@ import NewTodo from './customComponents/NewTodo.js';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
+  const deleteTodo = () => {
+    console.log('onDelete');
+  };
 
   const [showNewTodoForm, setShowNewTodoForm] = useState(false);
 
@@ -34,7 +37,7 @@ export default function App() {
         showNewTodoForm={showNewTodoForm}
         setShowNewTodoForm={setShowNewTodoForm}
       />
-      <Todos todos={todos} />
+      <Todos todos={todos} onDelete={deleteTodo} />
     </>
   );
 }

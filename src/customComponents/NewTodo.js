@@ -8,8 +8,8 @@ export default function NewTodo({ addNewTodoHandler, showNewTodoForm }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!title || !desc) {
-      alert('Both title and descriptions are required !');
+    if (!title) {
+      alert('Title is required !');
     } else {
       setTitle('');
       setDesc('');

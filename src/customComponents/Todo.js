@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Todo({ todo }) {
+export default function Todo({ todo, onDelete }) {
   let collapse_id = 'collapse' + todo.sno;
   let heading_id = 'heading' + todo.sno;
   return (
@@ -28,7 +28,7 @@ export default function Todo({ todo }) {
           <div className="accordion-body">
             {todo.desc}
             <div className="mt-3 pt-2 text-end border-top">
-              <span style={{ cursor: 'pointer' }}>
+              <span style={{ cursor: 'pointer' }} onClick={onDelete}>
                 <i className="bi bi-trash"></i>
               </span>
             </div>
