@@ -1,12 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from './customComponents/Header.js';
 import Todos from './customComponents/Todos.js';
 import NewTodo from './customComponents/NewTodo.js';
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    // get data from localstorage, if it exists.
+    if (localStorage.getItem('todos')) {
+      return JSON.parse(localStorage.getItem('todos'));
+    } else {
+      return [];
+    }
+  });
+
   const deleteTodo = (todo) => {
     setTodos(
       todos.filter((e) => {
@@ -29,6 +37,11 @@ export default function App() {
 
     setShowNewTodoForm(!showNewTodoForm);
   };
+
+  useEffect(() => {
+    // update local storage.
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   return (
     <>
