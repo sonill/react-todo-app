@@ -6,7 +6,7 @@ import Todos from './customComponents/Todos.js';
 import NewTodo from './customComponents/NewTodo.js';
 
 export default function App() {
-  const [doFilter, setDoFilter] = useState(false);
+  const [doFilter, setDoFilterMode] = useState(false);
 
   const getTodosFromLocalStorage = () => {
     if (localStorage.getItem('todos')) {
@@ -23,6 +23,9 @@ export default function App() {
 
   // delete selected todo.
   const deleteTodo = (todo) => {
+    // turn filter mode off.
+    setDoFilterMode(false);
+
     setTodos(
       todos.filter((e) => {
         return e !== todo;
@@ -33,7 +36,7 @@ export default function App() {
   // search / filter todos
   const filterTodos = (keyword) => {
     // turn filter mode on.
-    setDoFilter(true);
+    setDoFilterMode(true);
 
     if (keyword.length < 1) {
       setTodos(getTodosFromLocalStorage());
@@ -53,7 +56,7 @@ export default function App() {
   // add new todo.
   const addNewTodo = (title, desc) => {
     // turn filter mode off.
-    setDoFilter(false);
+    setDoFilterMode(false);
 
     let new_sno = todos.length > 0 ? todos[todos.length - 1].sno + 1 : 1;
     let newData = {
@@ -70,6 +73,7 @@ export default function App() {
 
   // useEffect runs when todos is updated.
   useEffect(() => {
+    // don't update localstorage if filter mode is on.
     if (!doFilter) {
       // update local storage.
       localStorage.setItem('todos', JSON.stringify(todos));
