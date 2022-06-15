@@ -11,6 +11,8 @@ export default function NewTodo({ addNewTodoHandler, showNewTodoForm }) {
     if (!title || !desc) {
       alert('Both title and descriptions are required !');
     } else {
+      setTitle('');
+      setDesc('');
       addNewTodoHandler(title, desc);
     }
   };
