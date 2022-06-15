@@ -6,8 +6,8 @@ export default function Todos({ todos }) {
     <div className="container">
       <div className="col-lg-6 mx-auto">
         <div class="accordion ">
-          {todos.map((todo) => (
-            <Todo todo={todo} />
+          {todos.reverse().map((todo) => (
+            <Todo key={todo.sno} todo={todo} />
           ))}
         </div>
       </div>

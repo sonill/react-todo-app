@@ -19,10 +19,23 @@ export default function App() {
     },
   ]);
 
+  const addNewTodo = (title, desc) => {
+    let new_sno = todos[todos.length - 1].sno + 1;
+    let newData = [
+      {
+        sno: new_sno,
+        title: title,
+        desc: desc,
+      },
+    ];
+
+    setTodos([...todos, newData]);
+  };
+
   return (
     <>
       <Header />
-      <NewTodo />
+      <NewTodo addNewTodo={addNewTodo} />
       <Todos todos={todos} />
     </>
   );
