@@ -25,7 +25,14 @@ export default function Todo({ todo }) {
           data-bs-parent="#accordionExample"
           style={{ whiteSpace: 'pre-line' }}
         >
-          <div className="accordion-body">{todo.desc}</div>
+          <div className="accordion-body">
+            {todo.desc}
+            <div class="mt-3 pt-2 text-end border-top">
+              <span style={{ cursor: 'pointer' }}>
+                <i class="bi bi-trash"></i>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </>
