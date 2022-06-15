@@ -5,6 +5,7 @@ export default function NewTodo({ addNewTodoHandler, showNewTodoForm }) {
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
 
+  // handle form submit.
   const handleSubmit = (e) => {
     e.preventDefault();
 

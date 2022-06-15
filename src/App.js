@@ -15,6 +15,7 @@ export default function App() {
     }
   });
 
+  // delete selected todo.
   const deleteTodo = (todo) => {
     setTodos(
       todos.filter((e) => {
@@ -23,8 +24,14 @@ export default function App() {
     );
   };
 
+  // search / filter todos
+  const filterTodos = ( keyword ) => {
+    
+  } 
+
   const [showNewTodoForm, setShowNewTodoForm] = useState(false);
 
+  // add new todo.
   const addNewTodo = (title, desc) => {
     let new_sno = todos.length > 0 ? todos[todos.length - 1].sno + 1 : 1;
     let newData = {
@@ -35,9 +42,11 @@ export default function App() {
 
     setTodos([...todos, newData]);
 
+    // show hide new todo form.
     setShowNewTodoForm(!showNewTodoForm);
   };
 
+  // useEffect runs when todos is updated.
   useEffect(() => {
     // update local storage.
     localStorage.setItem('todos', JSON.stringify(todos));
