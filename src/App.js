@@ -7,8 +7,12 @@ import NewTodo from './customComponents/NewTodo.js';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
-  const deleteTodo = () => {
-    console.log('onDelete');
+  const deleteTodo = (todo) => {
+    setTodos(
+      todos.filter((e) => {
+        return e !== todo;
+      })
+    );
   };
 
   const [showNewTodoForm, setShowNewTodoForm] = useState(false);

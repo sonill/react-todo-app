@@ -28,7 +28,10 @@ export default function Todo({ todo, onDelete }) {
           <div className="accordion-body">
             {todo.desc}
             <div className="mt-3 pt-2 text-end border-top">
-              <span style={{ cursor: 'pointer' }} onClick={onDelete}>
+              <span
+                style={{ cursor: 'pointer' }}
+                onClick={() => onDelete(todo)}
+              >
                 <i className="bi bi-trash"></i>
               </span>
             </div>
